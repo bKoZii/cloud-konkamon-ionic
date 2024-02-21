@@ -1,0 +1,8 @@
+{
+  "name": "cloud-konkamon-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "cfdbe32f"
+}
