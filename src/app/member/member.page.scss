@@ -1,0 +1,28 @@
+.largeButton {
+  ion-fab-button {
+    margin-top: 1.5em;
+  }
+}
+
+.memberHeader {
+  margin: 1em 0;
+}
+
+ion-item-option {
+  width: 3em;
+
+  ion-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+ion-item-sliding {
+  ion-item {
+    ion-label {
+      height: 40px;
+      padding-top: 8px;
+      font-size: 13pt;
+    }
+  }
+}
