@@ -4,8 +4,8 @@
 
 Ionic + Angular Application, ชิ้นงานประจำรายวิชา 0232430865 การพัฒนาคลาวด์แอปพลิเคชัน
 
-Vue: <https://github.com/bKoZii/cloud-konkamon-ionic-vue>
-Angular: <https://github.com/bKoZii/cloud-konkamon-ionic>
+- Vue: <https://github.com/bKoZii/cloud-konkamon-ionic-vue>
+- Angular: <https://github.com/bKoZii/cloud-konkamon-ionic>
 
 ## How to run
 
