@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IMember } from '../models/member.model';
 import { map } from 'rxjs/operators';
 import { MemberService } from '../services/member.service';
@@ -8,7 +8,6 @@ import {
   ModalController,
   ToastController,
 } from '@ionic/angular';
-import { HomePage } from '../home/home.page';
 @Component({
   selector: 'app-member',
   templateUrl: './member.page.html',
@@ -21,8 +20,6 @@ export class MemberPage {
   memberRemove: IMember = new IMember();
   fullName?: String;
   searchText: any;
-  searchCount = { count: 0 };
-
   dbPath?: string;
 
   constructor(
@@ -38,8 +35,28 @@ export class MemberPage {
   }
 
   memberList: any;
+  searchResults: any[] = [];
   showModal: boolean = false;
+  search(event: any) {
+    this.searchText = event.target.value;
+    this.mService.search(this.searchText).subscribe((data) => {
+      this.searchResults = data;
+    });
+  }
+  // searchItems(searchQuery: string) {
+  //   if (!searchQuery || searchQuery.trim() === '') {
+  //     return this.memberList;
+  //   }
+  //   const lowerCaseQuery = searchQuery.toLowerCase();
 
+  //   return this.memberList.filter((memberList: any) => {
+  //     // memberList.toLowerCase().includes(searchQuery.toLowerCase())
+  //     return Object.values(memberList).some((value) => {
+  //       const stringValue = String(value).toLowerCase();
+  //       return stringValue.includes(lowerCaseQuery);
+  //     });
+  //   });
+  // }
   selectItem() {
     this.showModal = true;
   }
@@ -77,10 +94,15 @@ export class MemberPage {
     this.fullName = data.title + ' ' + data.fName + ' ' + data.lName;
     this.memberMore = data;
   }
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   editData(data: IMember) {
     this.fullName = data.title + ' ' + data.fName + ' ' + data.lName;
     this.memberEdit = data;
-
+    this.setOpen(true);
     // this.mService.updateData(data.id ,data)
   }
   async removeData(data: IMember) {
@@ -94,7 +116,7 @@ export class MemberPage {
           text: 'ยกเลิก',
           role: 'cancel',
           handler: async () => {
-            this.completeToast('ยกเลิกการลบข้อมูลสำเร็จ', 'secondary');
+            this.completeToast('ยกเลิกการลบข้อมูลสำเร็จ', 'dark');
           },
         },
         {
@@ -113,7 +135,7 @@ export class MemberPage {
 
   async completeToast(
     message: string,
-    color: 'success' | 'primary' | 'tertiary' | 'secondary'
+    color: 'success' | 'primary' | 'tertiary' | 'secondary' | 'dark'
   ) {
     const toast = await this.memberToast.create({
       message: message,
@@ -129,12 +151,10 @@ export class MemberPage {
     this.memberEdit.dateEdited = new Date().getTime();
     this.mService.updateData(id, this.memberEdit).then(() => {});
   }
-
   async canDismiss(data?: any, role?: string) {
     return role !== 'gesture';
   }
   dialogDismiss() {
     this.modal.dismiss();
   }
-
 }
