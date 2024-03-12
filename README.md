@@ -9,7 +9,7 @@ Ionic + Angular Application, ชิ้นงานประจำรายวิ
 
 ## How to run
 
-- Install the Ionic CLI npm install -g @ionic/cli
-- Clone this repository git clone <https://github.com/bKoZii/cloud-konkamon-ionic-vue>
-- Run npm install in this Project Folder
-- Run ionic serve in this Project Folder
+- Install the Ionic CLI `npm install -g @ionic/cli`
+- Clone this repository `git clone <https://github.com/bKoZii/cloud-konkamon-ionic-vue>`
+- Run `npm install` in this Project Folder
+- Run `ionic serve` in this Project Folder
