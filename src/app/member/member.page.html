@@ -1,4 +1,4 @@
-<div class="ion-page" #page>
+<div class="ion-page" #page id="memberPage">
   <ion-header [translucent]="true">
     <ion-toolbar color="primary" class="ionic-padding ion-text-center">
 
@@ -15,12 +15,12 @@
               <ion-title class="ion-no-padding">รายชื่อสมาชิก</ion-title>
             </ion-list-header>
             <ion-item-sliding *ngFor="let memberData of memberList">
-              <ion-item class="ion-no-padding">
+              <ion-item class="ion-no-padding" (click)="memberDetail(memberData.id)">
                 <ion-label class="ion-margin-start">{{memberData.title +" " + memberData.fName + " " +
                   memberData.lName}}</ion-label>
               </ion-item>
               <ion-item-options>
-                <ion-item-option>
+                <ion-item-option (click)="openEditModal(memberData)">
                   <ion-icon name="create"></ion-icon>
                 </ion-item-option>
                 <ion-item-option color="danger" (click)="removeData(memberData)">
@@ -47,7 +47,7 @@
         <ion-content class="ion-padding">
           <ion-item>
             <ion-select label="คำนำหน้า" value="นาย" [(ngModel)]="member.title" cancel-text="ยกเลิก" ok-text="บันทึก"
-              justify="space-between" :interface-options="customAlertOptions">
+              justify="space-between" [interfaceOptions]="titleSelectOptions">
               <ion-select-option value="นาย">นาย</ion-select-option>
               <ion-select-option value="นาง">นาง</ion-select-option>
               <ion-select-option value="นางสาว">นางสาว</ion-select-option>
@@ -74,57 +74,11 @@
               labelPlacement="floating"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-textarea label="ที่อยู่" placeholder="กรุณาป้อนข้อมูล" labelPlacement="floating"></ion-textarea>
+            <ion-textarea label="ที่อยู่" [(ngModel)]="member.address" placeholder="กรุณาป้อนข้อมูล"
+              labelPlacement="floating"></ion-textarea>
           </ion-item>
           <ion-button expand="full" (click)="submitForm()" color="success" class="ion-margin-top"
             [disabled]="!member.fName || !member.lName">บันทึกข้อมูล</ion-button>
-        </ion-content>
-      </ng-template>
-    </ion-modal>
-    <ion-modal [isOpen]="isModalOpen" mode="ios" [canDismiss]="canDismiss" [presentingElement]="page">
-      <ng-template>
-        <ion-header>
-          <ion-toolbar>
-            <ion-title>แก้ไขข้อมูล - {{ memberEdit.fName}}</ion-title>
-            <ion-buttons slot="end">
-              <ion-button (click)="setOpen(false)">Close</ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content class="ion-padding">
-          <ion-item>
-            <ion-select label="คำนำหน้า" value="นาย" [(ngModel)]="member.title" cancel-text="ยกเลิก" ok-text="บันทึก"
-              justify="space-between" :interface-options="customAlertOptions">
-              <ion-select-option value="นาย">นาย</ion-select-option>
-              <ion-select-option value="นาง">นาง</ion-select-option>
-              <ion-select-option value="นางสาว">นางสาว</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-input label="ชื่อ" type="text" [(ngModel)]="member.fName" placeholder="กรุณาป้อนข้อมูล"
-              labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="นามสกุล" type="text" [(ngModel)]="member.lName" placeholder="กรุณาป้อนข้อมูล"
-              labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="อีเมลล์" type="email" [(ngModel)]="member.email" placeholder="กรุณาป้อนข้อมูล"
-              labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="เบอร์โทร" type="tel" [(ngModel)]="member.mobileNum" placeholder="กรุณาป้อนข้อมูล"
-              labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="LINE ID" type="text" [(ngModel)]="member.lineID" placeholder="กรุณาป้อนข้อมูล"
-              labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-textarea label="ที่อยู่" placeholder="กรุณาป้อนข้อมูล" labelPlacement="floating"></ion-textarea>
-          </ion-item>
-          <ion-button expand="full" (click)="submitForm()" color="success"
-            class="ion-margin-top">บันทึกข้อมูล</ion-button>
         </ion-content>
       </ng-template>
     </ion-modal>
