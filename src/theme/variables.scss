@@ -51,6 +51,14 @@
   --ion-color-danger-shade: #cf3c4f;
   --ion-color-danger-tint: #ed576b;
 
+  /** danger **/
+	--ion-color-danger: #D80032;
+	--ion-color-danger-rgb: 216,0,50;
+	--ion-color-danger-contrast: #ffffff;
+	--ion-color-danger-contrast-rgb: 255,255,255;
+	--ion-color-danger-shade: #be002c;
+	--ion-color-danger-tint: #dc1a47;
+
   /** dark **/
   --ion-color-dark: #222428;
   --ion-color-dark-rgb: 34, 36, 40;
@@ -247,8 +255,4 @@ html {
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
-}
-
-ion-toolbar {
-  --min-height: 4em;
 }
