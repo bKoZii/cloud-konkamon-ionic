@@ -31,4 +31,9 @@ export class MemberService {
   deleteData(id: any): Promise<void> {
     return this.memberRef.doc(id).delete();
   }
+  search(query: string) {
+    return this.db
+      .collection('members', (ref) => ref.where('searchField', '==', query))
+      .valueChanges();
+  }
 }
