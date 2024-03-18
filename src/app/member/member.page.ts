@@ -1,13 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IMember } from '../models/member.model';
 import { map } from 'rxjs/operators';
 import { MemberService } from '../services/member.service';
 import {
   AlertController,
-  IonModal,
   ModalController,
   ToastController,
 } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 @Component({
   selector: 'app-member',
   templateUrl: './member.page.html',
@@ -26,14 +27,13 @@ export class MemberPage {
     private mService: MemberService,
     private memberAlert: AlertController,
     private memberToast: ToastController,
-    private modal: ModalController
+    private modal: ModalController,
+    private router: Router
   ) {
     this.retrieveData();
     this.member.title = 'นาย';
     this.dbPath = mService.dbPath;
-    // this.memberMore = this.member;
   }
-
   memberList: any;
   searchResults: any[] = [];
   showModal: boolean = false;
@@ -43,20 +43,10 @@ export class MemberPage {
       this.searchResults = data;
     });
   }
-  // searchItems(searchQuery: string) {
-  //   if (!searchQuery || searchQuery.trim() === '') {
-  //     return this.memberList;
-  //   }
-  //   const lowerCaseQuery = searchQuery.toLowerCase();
-
-  //   return this.memberList.filter((memberList: any) => {
-  //     // memberList.toLowerCase().includes(searchQuery.toLowerCase())
-  //     return Object.values(memberList).some((value) => {
-  //       const stringValue = String(value).toLowerCase();
-  //       return stringValue.includes(lowerCaseQuery);
-  //     });
-  //   });
-  // }
+  titleSelectOptions = {
+    header: 'คำนำหน้า',
+    subHeader: 'กรุณาเลือกเพียงหนึ่งรายการ',
+  };
   selectItem() {
     this.showModal = true;
   }
@@ -100,10 +90,10 @@ export class MemberPage {
     this.isModalOpen = isOpen;
   }
   editData(data: IMember) {
-    this.fullName = data.title + ' ' + data.fName + ' ' + data.lName;
-    this.memberEdit = data;
-    this.setOpen(true);
-    // this.mService.updateData(data.id ,data)
+    // this.fullName = data.title + ' ' + data.fName + ' ' + data.lName;
+    // this.memberEdit = data;
+    // this.setOpen(true);
+    // this.mService.updateData(data.id, data);
   }
   async removeData(data: IMember) {
     const alert = await this.memberAlert.create({
@@ -156,5 +146,20 @@ export class MemberPage {
   }
   dialogDismiss() {
     this.modal.dismiss();
+  }
+  resetMember() {
+    // Reset the member object to its initial state
+    this.member = new IMember();
+  }
+  memberDetail(id: any) {
+    this.router.navigateByUrl('/member-detail/' + id);
+  }
+  async openEditModal(data: any) {
+    const modal = await this.modal.create({
+      component: EditModalComponent,
+      componentProps: { data: data },
+      presentingElement: document.querySelector('#memberPage') as HTMLElement,
+    });
+    modal.present();
   }
 }
