@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ข้อมูลสมาชิก - {{member.title + " " + member.fName + " " +
+      member.lName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list :inset="true">
+    <ion-item>
+      <ion-label>
+        <ion-note color="medium">ชื่อเต็ม</ion-note><br />
+        <ion-text>
+          {{member.title + " " + member.fName + " " +
+          member.lName}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-note color="medium">E-Mail</ion-note><br />
+        <ion-text>
+          {{member.email}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-note color="medium">เบอร์โทร</ion-note><br />
+        <ion-text>
+          {{member.mobileNum}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-note color="medium">LINE ID</ion-note><br />
+        <ion-text>
+          {{member.lineID}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-note color="medium">ที่อยู่</ion-note><br />
+        <ion-text>
+          {{member.address}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+
+  <ion-note class="ion-padding">
+    {{member}}
+  </ion-note>
+</ion-footer>
