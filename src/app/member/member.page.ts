@@ -105,9 +105,6 @@ export class MemberPage {
         {
           text: 'ยกเลิก',
           role: 'cancel',
-          handler: async () => {
-            this.completeToast('ยกเลิกการลบข้อมูลสำเร็จ', 'dark');
-          },
         },
         {
           text: 'ยืนยัน',
