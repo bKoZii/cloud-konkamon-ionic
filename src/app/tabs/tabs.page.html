@@ -12,9 +12,10 @@
       <ion-label>สมาชิก</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button id="project-alert">
+    <!-- <ion-tab-button id="project-alert"> -->
+    <ion-tab-button tab="project">
       <ion-icon name="documents"></ion-icon>
-      <ion-label>โปรเจคจบ</ion-label>
+      <ion-label>มินิโปรเจค</ion-label>
     </ion-tab-button>
 
     <!-- <ion-tab-button tab="tab4" href="/tabs/tab4">
@@ -22,11 +23,5 @@
       <ion-label>Mini-Project</ion-label>
     </ion-tab-button> -->
   </ion-tab-bar>
-  <ion-alert
-  trigger="project-alert"
-  header="Mini-Project"
-  message="Coming Soon..."
-  [buttons]="['รับทราบ']"
-></ion-alert>
-
+  <ion-alert trigger="project-alert" header="Mini-Project" message="Coming Soon..." [buttons]="['รับทราบ']"></ion-alert>
 </ion-tabs>
