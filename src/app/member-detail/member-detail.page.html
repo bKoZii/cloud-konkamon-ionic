@@ -11,44 +11,34 @@
 <ion-content [fullscreen]="true">
   <ion-list :inset="true">
     <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
       <ion-label>
-        <ion-note color="medium">ชื่อเต็ม</ion-note><br />
-        <ion-text>
-          {{member.title + " " + member.fName + " " +
-          member.lName}}
-        </ion-text>
+        {{member.title + " " + member.fName + " " +
+        member.lName}}
       </ion-label>
     </ion-item>
     <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
       <ion-label>
-        <ion-note color="medium">E-Mail</ion-note><br />
-        <ion-text>
-          {{member.email}}
-        </ion-text>
+        {{member.email}}
       </ion-label>
     </ion-item>
     <ion-item>
+      <ion-icon name="call" slot="start"></ion-icon>
       <ion-label>
-        <ion-note color="medium">เบอร์โทร</ion-note><br />
-        <ion-text>
-          {{member.mobileNum}}
-        </ion-text>
+        {{member.phoneNum}}
       </ion-label>
     </ion-item>
     <ion-item>
+      <ion-icon src="assets/icon/logoLine.svg" slot="start"></ion-icon>
       <ion-label>
-        <ion-note color="medium">LINE ID</ion-note><br />
-        <ion-text>
-          {{member.lineID}}
-        </ion-text>
+        {{member.lineID}}
       </ion-label>
     </ion-item>
     <ion-item>
+      <ion-icon name="home" slot="start"></ion-icon>
       <ion-label>
-        <ion-note color="medium">ที่อยู่</ion-note><br />
-        <ion-text>
-          {{member.address}}
-        </ion-text>
+        {{member.address}}
       </ion-label>
     </ion-item>
   </ion-list>
