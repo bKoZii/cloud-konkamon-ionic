@@ -24,9 +24,55 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@font-face {
+  font-family: "MiSans";
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/MiSansLatin-Medium.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans";
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/MiSansLatin-Normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans";
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/MiSansLatin-Bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans Thai";
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/MiSansThai-Medium.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans Thai";
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/MiSansThai-Normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans Thai";
+  font-weight: 800;
+  font-display: swap;
+  src: url(assets/fonts/MiSansThai-SemiBold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "MiSans Thai";
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/MiSansThai-Bold.woff2) format("woff2");
+}
 
 html{
   // --ion-dynamic-font: var(--ion-default-dynamic-font);
-  --ion-font-family: 'Nunito Sans', 'Noto Sans Thai Looped';
+  --ion-font-family: 'MiSans', 'MiSans Thai';
+}
+
+ion-card-title, ion-title {
+  font-weight: 600;
 }
