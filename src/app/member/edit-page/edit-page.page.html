@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>แก้ไขข้อมูล</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-select label="คำนำหน้า" value="นาย" [(ngModel)]="member.title" cancel-text="ยกเลิก" ok-text="บันทึก"
+      [interfaceOptions]="titleSelectOptions" labelPlacement="floating">
+      <ion-select-option value="นาย">นาย</ion-select-option>
+      <ion-select-option value="นาง">นาง</ion-select-option>
+      <ion-select-option value="นางสาว">นางสาว</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input label="ชื่อ" type="text" [(ngModel)]="member.fName" placeholder="กรุณาป้อนข้อมูล"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="นามสกุล" type="text" [(ngModel)]="member.lName" placeholder="กรุณาป้อนข้อมูล"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="อีเมลล์" type="email" [(ngModel)]="member.email" placeholder="กรุณาป้อนข้อมูล"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="เบอร์โทร" type="tel" [(ngModel)]="member.phoneNum" placeholder="กรุณาป้อนข้อมูล"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="LINE ID" type="text" [(ngModel)]="member.lineID" placeholder="กรุณาป้อนข้อมูล"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea label="ที่อยู่" placeholder="กรุณาป้อนข้อมูล" labelPlacement="floating"
+      [(ngModel)]="member.address"></ion-textarea>
+  </ion-item>
+  <ion-button expand="full" (click)="updateData(member.id)" color="success"
+    class="ion-margin-top">อัพเดทข้อมูล</ion-button>
+</ion-content>

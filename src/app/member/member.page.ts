@@ -8,7 +8,7 @@ import {
   ToastController,
 } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { EditPagePage } from './edit-page/edit-page.page';
 @Component({
   selector: 'app-member',
   templateUrl: './member.page.html',
@@ -97,7 +97,6 @@ export class MemberPage {
   }
   async removeData(data: IMember) {
     const alert = await this.memberAlert.create({
-      mode: 'ios',
       header: 'ลบข้อมูลสมาชิก',
       subHeader: 'คุณต้องการลบข้อมูลสมาชิกนี้หรือไม่?',
       message: data.title + ' ' + data.fName + ' ' + data.lName,
@@ -130,7 +129,8 @@ export class MemberPage {
       duration: 2000,
       color: color,
       icon: 'checkmark-circle',
-      mode: 'ios',
+      positionAnchor:
+        (document.querySelector('#memberHeader') as HTMLElement) || undefined,
     });
     toast.present();
   }
@@ -151,12 +151,26 @@ export class MemberPage {
   memberDetail(id: any) {
     this.router.navigateByUrl('/member-detail/' + id);
   }
-  async openEditModal(data: any) {
+  // async openEditModal(data: any) {
+  //   const modal = await this.modal.create({
+  //     component: EditPagePage,
+  //     componentProps: { data: data },
+  //     presentingElement:
+  //       (document.querySelector('#memberPage') as HTMLElement) || undefined,
+  //   });
+  //   modal.present();
+  // }
+
+  async openEditPage(member: any) {
     const modal = await this.modal.create({
-      component: EditModalComponent,
-      componentProps: { data: data },
-      presentingElement: document.querySelector('#memberPage') as HTMLElement,
+      component: EditPagePage,
+      componentProps: {
+        member: member,
+      },
     });
-    modal.present();
+    modal.onDidDismiss().then((data: any) => {
+      this.retrieveData();
+    });
+    return await modal.present();
   }
 }
