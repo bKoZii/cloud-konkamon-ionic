@@ -10,7 +10,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="12" sizeLg="4" sizeMd="8">
           <ion-card>
-            <img alt="Silhouette of mountains" src="assets/me-rmutsv-square.jpg" />
+            <ion-img alt="Silhouette of mountains" src="assets/me-rmutsv-square.webp" />
             <ion-card-header>
               <ion-card-title>นาย กรกมล ศรีอ่อน</ion-card-title>
               <ion-card-subtitle>บิ๊ก</ion-card-subtitle>
@@ -18,8 +18,30 @@
             <ion-card-content>
               นักศึกษา มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย คณะวิทยาศาสตร์และเทคโนโลยี แผนกเทคโนโลยีสารสนเทศ
             </ion-card-content>
-            <ion-button fill="clear" href="https://github.com/bKoZii"><ion-icon
-                name="logo-github"></ion-icon></ion-button>
+            <ion-accordion-group>
+              <ion-accordion value="first">
+                <ion-item slot="header" color="light">
+                  <ion-icon name="information-circle"> </ion-icon>
+                  <ion-label> ข้อมูลส่วนตัว</ion-label>
+                </ion-item>
+                <div slot="content" id="myPersonalInfo">
+                  <ion-list>
+                    <ion-item><ion-icon src="assets/icon/fingerprint.svg"
+                        slot="start"></ion-icon>366202360058</ion-item>
+                    <ion-item><ion-icon :icon="person" slot="start"></ion-icon>นาย กรกมล ศรีอ่อน - ชื่อเล่น:
+                      บิ๊ก</ion-item>
+                    <ion-item><ion-icon :icon="mail" slot="start"></ion-icon>konkamon.si&#64;rmutsvmail.com</ion-item>
+                    <ion-item><ion-icon :icon="people" slot="start"></ion-icon>IT212</ion-item>
+                    <ion-item>
+                      <ion-icon :icon="school" slot="start"></ion-icon>
+                      สาขาเทคโนโลยีสารสนเทศ คณะวิทยาศาสตร์และเทคโนโลยี<br />มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย
+                    </ion-item>
+                    <ion-item><ion-icon :icon="logo-github" slot="start"></ion-icon><a href="https://github.com/bKoZii"
+                        target="_blank" rel="noopener noreferrer">bKoZii</a></ion-item>
+                  </ion-list>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </ion-card>
         </ion-col>
         <ion-col size="12" size-lg="6" size-md="8">
