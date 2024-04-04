@@ -4,7 +4,7 @@ export class IMember {
   fName?: string;
   lName?: string;
   email?: string;
-  mobileNum?: string;
+  phoneNum?: string;
   lineID?: string;
   address?: string;
   dateAdded?: number;
