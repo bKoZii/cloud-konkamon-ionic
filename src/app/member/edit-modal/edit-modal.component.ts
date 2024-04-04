@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
-import { IMember } from 'src/app/models/member.model';
 import { MemberService } from 'src/app/services/member.service';
 
 @Component({
